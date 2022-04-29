@@ -17,9 +17,9 @@ type Conf struct {
 		Port string `yaml:"port"`
 	}
 	Send struct {
-		Cookie  string `yaml:"cookie"`
-		Content string `yaml:"content"`
-		Referer string `yaml:"referer"`
+		Cookie     string `yaml:"cookie"`
+		Referer    string `yaml:"referer"`
+		XCsrftoken string `yaml:"x-csrftoken"`
 	}
 }
 
