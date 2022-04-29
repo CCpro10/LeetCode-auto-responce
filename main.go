@@ -32,7 +32,7 @@ func main() {
 	log.SetFlags(log.Lshortfile)
 	RandomSend()
 	c := cron.New()
-	_ = c.AddFunc("* * */1 * * *", RandomSend)
-
+	_ = c.AddFunc("30 44 */1 * * *", RandomSend)
 	c.Start()
+	select {}
 }
