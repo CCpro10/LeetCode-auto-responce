@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/robfig/cron"
 	"log"
-	"main/function"
+	"main/servise"
 	"math/rand"
 	"time"
 )
@@ -25,14 +25,14 @@ var sendStr = []string{
 func RandomSend() {
 	rand.Seed(time.Now().UnixNano())
 	content := sendStr[rand.Intn(len(sendStr))]
-	function.Send(content)
+	servise.Send(content)
 }
 
 func main() {
 	log.SetFlags(log.Lshortfile)
 	RandomSend()
 	c := cron.New()
-	_ = c.AddFunc("30 44 */1 * * *", RandomSend)
+	_ = c.AddFunc("30 44 */4 * * *", RandomSend)
 	c.Start()
 	select {}
 }
